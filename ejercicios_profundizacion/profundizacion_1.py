@@ -28,10 +28,47 @@ que ya dispongamos de Python. El objetivo es:
         la suma y los números recoletados
     b) Si el número es mayor a 21 se debe informar al usuario que perdio
 '''
-
+from random import choices, randint,randrange, choice
 if __name__ == '__main__':
-    print('Comenzamos a divertirnos!')
+    print('Comenzamos a divertirnos!\n')
     # A partir de aquí escriba el código que resuelve el enunciado
     # Leer el enunciado con atención y consultar cualquier duda
 
+    lista_rand = [randint(1,10) for x in range(3)]
+    print(lista_rand,"\n")
+    print("SOLUCION 1:")
+    def suma_21(lista:list) -> str:
+        rta = ""
+        total = sum(lista)
+        if total <= 21:
+            rta = f"SUMA TOTAL: {total} - NUMEROS RECOLECTADOS: {lista}"
+        else:
+            rta = f"LA SUMA TOTAL ES: {total}. PERDIÓ PORQUE SE HA PASADO DE 21."
+        
+        return rta
+    
+    print(suma_21(lista_rand))
+    print("\n")
+    
+    # NOTA: Podría no haber usado una función, para hacer el código más "corto", 
+    # pero no sería escalable o reutilizable, y por lo tanto, a la larga sería más largo e ineficiente.
+    # También podría hacerse una función que devuelva un bool, para simplemente evaluar si se pasa o no de 21:
+    
+    print("SOLUCION 2:")
+    
+    def se_paso(lista:list)->bool:
+        perdio = False
+        if sum(lista)>21:
+            perdio = True
+        
+        return perdio
+        
+    if se_paso(lista_rand)==True:
+        print(f"LA SUMA TOTAL ES: {sum(lista_rand)}. PERDIÓ PORQUE SE HA PASADO DE 21.")
+    else:
+        print(f"SUMA TOTAL: {sum(lista_rand)} - NUMEROS RECOLECTADOS: {lista_rand}")
+    
+    
+    
+    print("\n")
     print("terminamos")

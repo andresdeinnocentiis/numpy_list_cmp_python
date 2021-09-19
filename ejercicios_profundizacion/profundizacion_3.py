@@ -61,6 +61,13 @@ if __name__ == '__main__':
 
     # A partir de aquí escriba el código que resuelve el enunciado
     # Leer el enunciado con atención y consultar cualquier duda
-
-
+    
+    # SOLUCION 1: (La que sabía hasta antes de investigar la posibilidad de dar un valor en subsidio dentro del método get() )
+    lista_compra_productos = [producto.get(item) if item in producto.keys() else "NaN" for item in lista_compra_id]
+    print(f"S1. LISTA COMPRA PRODUCTOS: {lista_compra_productos}\n")
+    
+    # SOLUCION 2: (Luego de investigar sobre el método get() )
+    lista_compra_productos = [producto.get(item,"NaN") for item in lista_compra_id]
+    print(f"S2. LISTA COMPRA PRODUCTOS: {lista_compra_productos}\n")
+    
     print("terminamos")
